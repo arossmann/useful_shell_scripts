@@ -1,3 +1,14 @@
+# Docker Images
+
+## Delete all containers
+```
+    docker rm $(docker ps -a -q)
+```
+## Delete all images
+``` 
+    docker rmi $(docker images -q)
+```
+
 # Docker Networking
 (based on: http://networkstatic.net/10-examples-of-how-to-get-docker-container-ip-address/)
 
