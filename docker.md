@@ -29,7 +29,7 @@ Output:
     "org.opencontainers.image.version": "v1.7.20"
   }
 }
-
+```
 
 ## Delete all containers
 ```
