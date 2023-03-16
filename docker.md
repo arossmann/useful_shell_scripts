@@ -1,5 +1,36 @@
 # Docker Images
 
+## find version
+```
+$ docker images
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+traefik             latest              96c63a7d3e50        2 months ago        85.7MB
+
+$ IMAGE_ID=96c63a7d3e50
+
+$ docker image inspect --format '{{json .}}' "$IMAGE_ID" | jq -r '. | {Id: .Id, Digest: .Digest, RepoDigests: .RepoDigests, Labels: .Config.Labels}'
+
+```
+Output:
+
+```
+{
+  "Id": "sha256:96c63a7d3e502fcbbd8937a2523368c22d0edd1788b8389af095f64038318834",
+  "Digest": null,
+  "RepoDigests": [
+    "traefik@sha256:5ec34caf19d114f8f0ed76f9bc3dad6ba8cf6d13a1575c4294b59b77709def39"
+  ],
+  "Labels": {
+    "org.opencontainers.image.description": "A modern reverse-proxy",
+    "org.opencontainers.image.documentation": "https://docs.traefik.io",
+    "org.opencontainers.image.title": "Traefik",
+    "org.opencontainers.image.url": "https://traefik.io",
+    "org.opencontainers.image.vendor": "Containous",
+    "org.opencontainers.image.version": "v1.7.20"
+  }
+}
+
+
 ## Delete all containers
 ```
     docker rm $(docker ps -a -q)
